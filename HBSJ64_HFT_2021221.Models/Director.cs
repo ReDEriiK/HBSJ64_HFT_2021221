@@ -11,6 +11,7 @@ namespace HBSJ64_HFT_2021221.Models
     public class Director
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DirectorId { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
@@ -18,8 +19,6 @@ namespace HBSJ64_HFT_2021221.Models
 
         public virtual ICollection<Film> Films { get; set; }
 
-        [ForeignKey(nameof(Film))]
-        public int FilmId { get; set; }
         public Director()
         {
             Films = new HashSet<Film>();

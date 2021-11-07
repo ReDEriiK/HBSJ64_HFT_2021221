@@ -11,13 +11,12 @@ namespace HBSJ64_HFT_2021221.Models
     public class Actor
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ActorId { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }
         public int Awards { get; set; }
         public virtual ICollection<Film> Films { get; set; }
-        [ForeignKey(nameof(Film))]
-        public int FilmId { get; set; }
         public Actor()
         {
             Films = new HashSet<Film>();

@@ -7,6 +7,7 @@ namespace HBSJ64_HFT_2021221.Models
     public class Film
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int FilmId { get; set;}
         public string Title { get; set; }
         public string Genre { get; set; }
@@ -21,7 +22,7 @@ namespace HBSJ64_HFT_2021221.Models
         public int DirectorId { get; set; }
 
         [ForeignKey(nameof(Actor))]
-        public int MainActorId { get; set; }
+        public int ActorId { get; set; }
 
     }
 }

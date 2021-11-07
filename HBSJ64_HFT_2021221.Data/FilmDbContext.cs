@@ -22,6 +22,17 @@ namespace HBSJ64_HFT_2021221.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            
+
+            modelBuilder.Entity<Film>(entity =>
+            {
+                entity.HasOne(film => film.Actor).WithMany(actor => actor.Films).HasForeignKey(film => film.ActorId).OnDelete(DeleteBehavior.ClientSetNull);
+            });
+            modelBuilder.Entity<Film>(entity =>
+            {
+                entity.HasOne(film => film.Director).WithMany(director => director.Films).HasForeignKey(film => film.DirectorId).OnDelete(DeleteBehavior.ClientSetNull);
+            });
+
             Director d1 = new Director() { DirectorId = 1, Name = "Danny Boyle", Age = 64, Award = 20 };
             Director d2 = new Director() { DirectorId = 2, Name = "George Lucas", Age = 77, Award = 60 };
 
@@ -35,22 +46,15 @@ namespace HBSJ64_HFT_2021221.Data
 
 
             f1.DirectorId = d1.DirectorId;
-            f1.MainActorId = a1.ActorId;
+            f1.ActorId = a1.ActorId;
             f2.DirectorId = d2.DirectorId;
-            f2.MainActorId = a1.ActorId;
+            f2.ActorId = a1.ActorId;
             f3.DirectorId = d2.DirectorId;
-            f3.MainActorId= a2.ActorId;
+            f3.ActorId= a2.ActorId;
 
 
 
-            modelBuilder.Entity<Film>(entity =>
-            {
-                entity.HasOne(film => film.Actor).WithMany(actor => actor.Films).HasForeignKey(film => film.MainActorId).OnDelete(DeleteBehavior.ClientSetNull);
-            });
-            modelBuilder.Entity<Film>(entity =>
-            {
-                entity.HasOne(film => film.Director).WithMany(director => director.Films).HasForeignKey(film => film.DirectorId).OnDelete(DeleteBehavior.ClientSetNull);
-            });
+           
 
             modelBuilder.Entity<Film>().HasData(f1, f2, f3);
             modelBuilder.Entity<Actor>().HasData(a1, a2);
