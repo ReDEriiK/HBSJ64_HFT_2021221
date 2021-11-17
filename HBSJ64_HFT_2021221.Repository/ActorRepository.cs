@@ -40,7 +40,7 @@ namespace HBSJ64_HFT_2021221.Repository
 
         public void Update(Actor actor)
         {
-            var actorToUpdate = Read(actor.DirectorId);
+            var actorToUpdate = Read(actor.ActorId);
             actorToUpdate.Name = actor.Name;
             actorToUpdate.Age = actor.Age;
             actorToUpdate.Awards = actor.Awards;
