@@ -14,7 +14,7 @@ namespace HBSJ64_HFT_2021221.Logic
         void Update(Director director);
         void Delete(int id);
         IEnumerable<Director> GetAll();
-        IEnumerable<Film> DirectedFilms(int id);
-        IEnumerable<string> GendreOfDirectedFilms(int id);
+        IEnumerable<int> HowManyFilmDoesHeSheHave(int id);
+        IEnumerable<KeyValuePair<int, string>> GendreOfDirectedFilms(int id);
     }
 }

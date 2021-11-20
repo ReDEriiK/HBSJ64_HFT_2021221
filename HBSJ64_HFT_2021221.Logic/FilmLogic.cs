@@ -42,23 +42,15 @@ namespace HBSJ64_HFT_2021221.Logic
         {
             var res = from x in filmRepo.GetAll()
                       where x.FilmId == id
-                      select new
-                      {
-                          Title = x.Title,
-                          Acted = x.Actor.Name,
-                      };
-            return (IEnumerable<KeyValuePair<string, string>>)res;
+                      select new KeyValuePair<string, string>( x.Title, x.Actor.Name);
+            return res;
         }
         public IEnumerable<KeyValuePair<string, string>> FilmDirectors(int id)
         {
             var res = from x in filmRepo.GetAll()
                       where x.FilmId == id
-                      select new
-                      {
-                          Title = x.Title,
-                          Directed = x.Director.Name,
-                      };
-            return (IEnumerable<KeyValuePair<string, string>>)res;
+                      select new KeyValuePair<string, string>(x.Title, x.Director.Name);
+            return res;
         }
     }
 }

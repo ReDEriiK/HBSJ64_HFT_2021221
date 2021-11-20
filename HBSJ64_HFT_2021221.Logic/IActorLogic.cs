@@ -15,7 +15,6 @@ namespace HBSJ64_HFT_2021221.Logic
         void Update(Actor actor);
         void Delete(int id);
         IEnumerable<Actor> GetAll();
-        IEnumerable<Film> ActedOn(int id);
-        IEnumerable<string> GenresWherePlayed(int id);
+        IEnumerable<int> HowManyFilmDoesHeSheActedOn(int id);
     }
 }

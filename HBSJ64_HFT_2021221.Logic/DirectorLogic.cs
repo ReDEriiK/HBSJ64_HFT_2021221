@@ -38,20 +38,19 @@ namespace HBSJ64_HFT_2021221.Logic
             return directorRepo.GetAll();
         }
         ////////////////////////////////////////////////////////////////////////
-        public IEnumerable<Film> DirectedFilms(int id)
+        public IEnumerable<int> HowManyFilmDoesHeSheHave(int id)
         {
-            var res = from x in directorRepo.GetAll()
-                      where x.DirectorId == id
-                      select x.Films;
-            return (IEnumerable<Film>)res;
+            var res = directorRepo.GetAll().Where(x => x.DirectorId == id).Select(x => x.Films.Count());
+            return res;
         }
 
-        public IEnumerable<string> GendresOfDirectedFilms(int id)
+        public IEnumerable<KeyValuePair<int, string>> GendreOfDirectedFilms(int id)
         {
-            var res = from x in directorRepo.GetAll()
-                      where x.DirectorId == id
-                      select x.Films.Select(x => x.Genre);
-            return (IEnumerable<string>)res;
+            
+            var res = from x in directorRepo.GetAll().Where(y => y.DirectorId == id).SelectMany(Y => Y.Films)
+                       select new KeyValuePair<int, string>(x.FilmId, x.Genre);   
+            return res;
         }
+
     }
 }

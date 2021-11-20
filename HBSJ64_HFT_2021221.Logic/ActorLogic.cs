@@ -38,19 +38,11 @@ namespace HBSJ64_HFT_2021221.Logic
             actorRepo.Update(actor);
         }
         ////////////////////////////////////////////////////////////////////////
-        public IEnumerable<Film> ActedOn(int id)
+
+        public IEnumerable<int> HowManyFilmDoesHeSheActedOn(int id)
         {
-            var res = from x in actorRepo.GetAll()
-                      where x.ActorId == id
-                      select x.Films;
-            return (IEnumerable<Film>)res;
-        }
-        public IEnumerable<string> GenresWherePlayed(int id)
-        {
-            var res = from x in actorRepo.GetAll()
-                      where x.ActorId == id
-                      select x.Films.Select(x => x.Genre);
-            return (IEnumerable<string>)res;
+            var res = actorRepo.GetAll().Where(x => x.ActorId == id).Select(x => x.Films.Count());
+            return res;
         }
     }
 }
