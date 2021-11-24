@@ -14,7 +14,6 @@ namespace HBSJ64_HFT_2021221.Client
             var films = rest.Get<Film>("Film");
             var actors = rest.Get<Actor>("Actor");
             var directors = rest.Get<Director>("Director");
-            ;
         }
     }
 }
