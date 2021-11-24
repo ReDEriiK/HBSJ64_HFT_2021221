@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace HBSJ64_HFT_2021221.Models
@@ -16,6 +17,7 @@ namespace HBSJ64_HFT_2021221.Models
         public string Name { get; set; }
         public int Age { get; set; }
         public int Awards { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Film> Films { get; set; }
         public Actor()
         {
