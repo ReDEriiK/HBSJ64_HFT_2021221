@@ -18,54 +18,18 @@ namespace HBSJ64_HFT_2021221.Test
         [SetUp]
         public void Init()
         {
-            /////////////////////////////////////////////////////////////
-            
-
             Actor fakeActor = new Actor();
             fakeActor.ActorId = 1;
             fakeActor.Name = "Uma Thurman";
             fakeActor.Age = 51;
             fakeActor.Awards = 7;
-            var actors = new List<Actor>()
-            {
-                new Actor()
-                {
-                    ActorId = fakeActor.ActorId,
-                    Name = fakeActor.Name,
-                    Age = fakeActor.Age,
-                    Awards = fakeActor.Awards
-                }
-            }.AsQueryable();
-            var mockActorRepository = new Mock<IActorRepository>();
-            mockActorRepository.Setup((t) => t.GetAll()).Returns(actors);
-            al = new ActorLogic(mockActorRepository.Object);
-
-
-            /////////////////////////////////////////////////////////////
-
-
             Director fakeDirector = new Director();
             fakeDirector.DirectorId = 1;
             fakeDirector.Name = "Quentin Tarantino";
             fakeDirector.Age = 58;
             fakeDirector.Award = 7;
-            var directors = new List<Director>()
-            {
-                new Director()
-                {
-                    DirectorId = fakeDirector.DirectorId,
-                    Name = fakeDirector.Name,
-                    Age = fakeDirector.Age,
-                    Award = fakeDirector.Award
-                }
-            }.AsQueryable();
-            var mockDirectorRepository = new Mock<IDirectorRepository>();
-            mockDirectorRepository.Setup((t) => t.GetAll()).Returns(directors);
-            dl = new DirectorLogic(mockDirectorRepository.Object);
-
 
             /////////////////////////////////////////////////////////////
-
 
             var mockFilmRepository = new Mock<IFilmRepository>();
             fl = new FilmLogic(mockFilmRepository.Object);
@@ -93,8 +57,43 @@ namespace HBSJ64_HFT_2021221.Test
             mockFilmRepository.Setup((t) => t.GetAll()).Returns(films);
             fl = new FilmLogic(mockFilmRepository.Object);
 
+            /////////////////////////////////////////////////////////////
+
+            var actors = new List<Actor>()
+            {
+                new Actor()
+                {
+                    ActorId = fakeActor.ActorId,
+                    Name = fakeActor.Name,
+                    Age = fakeActor.Age,
+                    Awards = fakeActor.Awards,
+                    Films = films.ToList()
+                }
+            }.AsQueryable();
+            var mockActorRepository = new Mock<IActorRepository>();
+            mockActorRepository.Setup((t) => t.GetAll()).Returns(actors);
+            al = new ActorLogic(mockActorRepository.Object);
+
 
             /////////////////////////////////////////////////////////////
+            
+            var directors = new List<Director>()
+            {
+                new Director()
+                {
+                    DirectorId = fakeDirector.DirectorId,
+                    Name = fakeDirector.Name,
+                    Age = fakeDirector.Age,
+                    Award = fakeDirector.Award,
+                    Films = films.ToList()
+                }
+            }.AsQueryable();
+            var mockDirectorRepository = new Mock<IDirectorRepository>();
+            mockDirectorRepository.Setup((t) => t.GetAll()).Returns(directors);
+            dl = new DirectorLogic(mockDirectorRepository.Object);
+
+            /////////////////////////////////////////////////////////////
+            
         }
         [Test]
         public void FilmActors()
@@ -109,26 +108,29 @@ namespace HBSJ64_HFT_2021221.Test
         [Test]
         public void FilmDirector()
         {
-            var res = fl.FilmActors(2);
+            var res = fl.FilmDirectors(2);
             var exp = new List<KeyValuePair<string, string>>()
             {
                 new KeyValuePair<string, string>("Kill Bill 1.", "Quentin Tarantino")
             };
             Assert.That(res, Is.EqualTo(exp));
         }
-
         [Test]
         public void CountOfDirectedFilms()
         {
+            List<int> exp = new List<int>();
+            exp.Add(2);
             var res = dl.HowManyFilmDoesHeSheHave(1);
-            Assert.That(res, Is.EqualTo(2));
+            Assert.That(res, Is.EqualTo(exp));
 
         }
         [Test]
         public void CountOfFilmWhereActed()
         {
+            List<int> exp = new List<int>();
+            exp.Add(2);
             var res = al.HowManyFilmDoesHeSheActedOn(1);
-            Assert.That(res, Is.EqualTo(2));
+            Assert.That(res, Is.EqualTo(exp));
         }
         [Test]
         public void DirectorsGenres()
@@ -139,6 +141,55 @@ namespace HBSJ64_HFT_2021221.Test
                 new KeyValuePair<int, string>(1, "Gengszter film"),
                 new KeyValuePair<int, string>(1, "Akcióthriller")
             };
+        }
+        [Test]
+        public void CountOfActorAwards()
+        {
+            List<int> exp = new List<int>();
+            exp.Add(7);
+            var res = fl.CountOfActorAwards(1);
+            Assert.That(res, Is.EqualTo(exp));
+        }
+        [Test]
+        public void CountOfDirectorAwards()
+        {
+            List<int> exp = new List<int>();
+            exp.Add(7);
+            var res = fl.CountOfDirectorAwards(1);
+            Assert.That(res, Is.EqualTo(exp));
+        }
+
+        [Test]
+        public void ActorCreate()
+        {
+            Assert.That(() => al.Create(new Actor()
+            {
+                ActorId = 4,
+                Name = null,
+                Age = 15,
+                Awards = 0
+            }), Throws.ArgumentNullException);
+        }
+        [Test]
+        public void DirectorCreate()
+        {
+            Assert.That(() => dl.Create(new Director()
+            {
+                DirectorId = 4,
+                Name = null,
+                Age = 15,
+                Award = 5
+            }), Throws.ArgumentNullException);
+        }
+        [Test]
+        public void Filmreate()
+        {
+            Assert.That(() => fl.Create(new Film()
+            {
+                Title = null,
+                Genre = "Sci-fi",
+                DateOfPublish = 1994
+            }), Throws.ArgumentNullException);
         }
 
     }

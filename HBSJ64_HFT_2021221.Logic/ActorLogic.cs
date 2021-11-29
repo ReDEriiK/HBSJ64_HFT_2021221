@@ -19,7 +19,12 @@ namespace HBSJ64_HFT_2021221.Logic
         ////////////////////////////////////////////////////////////////////////
         public void Create(Actor actor)
         {
+            if (actor.Name == null)
+            {
+                throw new ArgumentNullException();
+            }
             actorRepo.Create(actor);
+
         }
         public void Delete(int id)
         {

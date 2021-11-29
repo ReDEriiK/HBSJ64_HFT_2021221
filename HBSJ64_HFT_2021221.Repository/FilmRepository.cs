@@ -15,6 +15,7 @@ namespace HBSJ64_HFT_2021221.Repository
 
         public void Create(Film film)
         {
+           
             fdbc.Films.Add(film);
             fdbc.SaveChanges();
         }

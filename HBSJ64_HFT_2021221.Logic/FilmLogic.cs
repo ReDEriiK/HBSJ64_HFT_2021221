@@ -19,7 +19,12 @@ namespace HBSJ64_HFT_2021221.Logic
         ////////////////////////////////////////////////////////////////////////
         public void Create(Film film)
         {
+            if (film.Title == null)
+            {
+                throw new ArgumentNullException();
+            }
             filmRepo.Create(film);
+
         }
         public void Delete(int id)
         {
@@ -52,5 +57,20 @@ namespace HBSJ64_HFT_2021221.Logic
                       select new KeyValuePair<string, string>(x.Title, x.Director.Name);
             return res;
         }
+
+        public IEnumerable<int> CountOfActorAwards(int id)
+        {
+            
+            var actorAwards = filmRepo.GetAll().Where(x => x.FilmId == id).Select(x => x.Actor.Awards);
+            return actorAwards;
+            
+        }
+        public IEnumerable<int> CountOfDirectorAwards(int id)
+        {
+            var directorAwards = filmRepo.GetAll().Where(x => x.FilmId == id).Select(x => x.Director.Award);
+            return directorAwards;
+
+        }
+
     }
 }

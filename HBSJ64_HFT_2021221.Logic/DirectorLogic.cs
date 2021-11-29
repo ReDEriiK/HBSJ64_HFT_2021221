@@ -19,7 +19,12 @@ namespace HBSJ64_HFT_2021221.Logic
         ////////////////////////////////////////////////////////////////////////
         public void Create(Director director)
         {
+            if (director.Name == null)
+            {
+                throw new ArgumentNullException();
+            }
             directorRepo.Create(director);
+
         }
         public Director Read(int id)
         {
