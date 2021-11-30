@@ -47,6 +47,16 @@ namespace HBSJ64_HFT_2021221.Endpoint.Controllers
         {
             return dl.GendreOfDirectedFilms(id);
         }
+        [HttpGet]
+        public IEnumerable<int> CountOfActorAwards(int id)
+        {
+            return fl.CountOfActorAwards(id);
+        }
+        [HttpGet]
+        public IEnumerable<int> CountOfDirectorAwards(int id)
+        {
+            return fl.CountOfDirectorAwards(id);
+        }
 
     }
 }
