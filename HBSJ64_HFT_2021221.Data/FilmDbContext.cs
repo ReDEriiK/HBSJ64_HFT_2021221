@@ -26,11 +26,11 @@ namespace HBSJ64_HFT_2021221.Data
 
             modelBuilder.Entity<Film>(entity =>
             {
-                entity.HasOne(film => film.Actor).WithMany(actor => actor.Films).HasForeignKey(film => film.ActorId).OnDelete(DeleteBehavior.ClientSetNull);
+                entity.HasOne(film => film.Actor).WithMany(actor => actor.Films).HasForeignKey(film => film.ActorId).OnDelete(DeleteBehavior.Cascade);
             });
             modelBuilder.Entity<Film>(entity =>
             {
-                entity.HasOne(film => film.Director).WithMany(director => director.Films).HasForeignKey(film => film.DirectorId).OnDelete(DeleteBehavior.ClientSetNull);
+                entity.HasOne(film => film.Director).WithMany(director => director.Films).HasForeignKey(film => film.DirectorId).OnDelete(DeleteBehavior.Cascade);
             });
 
             Director d1 = new Director() { DirectorId = 1, Name = "Danny Boyle", Age = 64, Award = 20 };

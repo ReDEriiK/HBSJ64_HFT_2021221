@@ -6,13 +6,15 @@ using System.Linq;
 
 namespace HBSJ64_HFT_2021221.Client
 {
+    
     class Program
     {
         static void Main(string[] args)
         {
-            System.Threading.Thread.Sleep(6000);
-            RestService rest = new RestService("http://localhost:4472");
+            System.Threading.Thread.Sleep(7500);
             bool menu = true;
+            RestService rest = new RestService("http://localhost:4472");
+
             while (menu)
             {
                 menu = Menu();
@@ -28,9 +30,7 @@ namespace HBSJ64_HFT_2021221.Client
             Console.WriteLine("[4] Delete an object");
             Console.WriteLine("[5] List the items");
             Console.WriteLine("[6] Class methods");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("x. Close the program");
+            Console.WriteLine("[x] Close the program");
             Console.WriteLine("--------------------------------------------------");
             string input = Console.ReadLine();
             switch (input)
@@ -76,11 +76,17 @@ namespace HBSJ64_HFT_2021221.Client
                 string genre = Console.ReadLine();
                 Console.WriteLine("Reale date of the new film");
                 int dateofbulish = int.Parse(Console.ReadLine());
+                Console.WriteLine("ID of the actor who is played in the film");
+                int acid = int.Parse(Console.ReadLine());
+                Console.WriteLine("ID of the director who is directed the film");
+                int diid = int.Parse(Console.ReadLine());
                 rest.Post<Film>(new Film()
                 {
                     Title = title,
                     Genre = genre,
-                    DateOfPublish = dateofbulish
+                    DateOfPublish = dateofbulish,
+                    ActorId = acid,
+                    DirectorId = diid
                 }, "film");
             }
             else if (input == "2")
@@ -134,7 +140,6 @@ namespace HBSJ64_HFT_2021221.Client
                     if (item.FilmId == id)
                     {
                         Console.WriteLine("The title of the film: " + item.Title);
-                        ;
                         Console.WriteLine("The relase date of the film: " + item.DateOfPublish);
                         Console.WriteLine("The genre of the film: " + item.Genre);
                         Console.ReadKey();
@@ -190,22 +195,19 @@ namespace HBSJ64_HFT_2021221.Client
                 string genre = Console.ReadLine();
                 Console.WriteLine("Reale date of the new film");
                 int dateofbulish = int.Parse(Console.ReadLine());
+                Console.WriteLine("ID of the actor who is played in the film");
+                int acid = int.Parse(Console.ReadLine());
+                Console.WriteLine("ID of the director who is directed the film");
+                int diid = int.Parse(Console.ReadLine());
                 rest.Put<Film>(new Film()
                 {
                     FilmId = id,
                     Title = title,
                     Genre = genre,
                     DateOfPublish = dateofbulish,
-                    ActorId = 0,
-                    DirectorId = 0,
+                    ActorId = acid,
+                    DirectorId = diid,
                 }, "film");
-                var films = rest.Get<Film>("film");
-                foreach (var item in films)
-                {
-                    Console.WriteLine(item.Title + ", " + item.DateOfPublish + ", " + item.Genre);
-                    ;
-                }
-                Console.ReadKey();
             }
             else if (input == "2")
             {
@@ -254,8 +256,6 @@ namespace HBSJ64_HFT_2021221.Client
             Console.WriteLine("[2] Actor");
             Console.WriteLine("[3] Director");
             string input = Console.ReadLine();
-            var films = rest.Get<Actor>("Actor");
-            ;
             Console.WriteLine("ID of the item: ");
             int id = int.Parse(Console.ReadLine());
             if (input == "1")
@@ -264,14 +264,15 @@ namespace HBSJ64_HFT_2021221.Client
             }
             else if (input == "2")
             {
+                var actors = rest.Get<Actor>("actor");
+                ;
                 rest.Delete(id, "actor");
+
             }
             else if (input == "3")
             {
                 rest.Delete(id, "director");
             }
-            films = rest.Get<Actor>("actor");
-            ;
         }
         public static void Listing()
         {
@@ -289,7 +290,6 @@ namespace HBSJ64_HFT_2021221.Client
                 foreach (var item in films)
                 {
                     Console.WriteLine(item.Title + ", " + item.DateOfPublish + ", " + item.Genre);
-                    ;
                 }
                 Console.ReadKey();
             }

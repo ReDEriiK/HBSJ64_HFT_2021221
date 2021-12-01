@@ -17,14 +17,13 @@ namespace HBSJ64_HFT_2021221.Repository
         {
            
             fdbc.Films.Add(film);
-            fdbc.SaveChangesAsync();
+            fdbc.SaveChanges();
         }
 
         public void Delete(int id)
         {
             var filmToDelete = Read(id);
             fdbc.Films.Remove(filmToDelete);
-            ;
             fdbc.SaveChangesAsync();
         }
 
