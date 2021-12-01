@@ -22,41 +22,41 @@ namespace HBSJ64_HFT_2021221.Endpoint.Controllers
             this.al = al;
             this.dl = dl;
         }
-        [HttpGet]
+        [HttpGet("{id}")]
         public IEnumerable<KeyValuePair<string, string>> FilmActors(int id)
         {
             return fl.FilmActors(id);
         }
-        [HttpGet]
+        [HttpGet("{id}")]
         public IEnumerable<KeyValuePair<string, string>> FilmDirectors(int id)
         {
             return fl.FilmDirectors(id);
         }
-        [HttpGet]
+        [HttpGet("{id}")]
         public IEnumerable<int> HowManyFilmDoesHeSheActedOn(int id)
         {
             return al.HowManyFilmDoesHeSheActedOn(id);
         }
-        [HttpGet]
+        [HttpGet("{id}")]
         public IEnumerable<int> HowManyFilmDoesHeSheHave(int id)
         {
             return dl.HowManyFilmDoesHeSheHave(id);
         }
-        [HttpGet]
+        [HttpGet("{id}")]
         public IEnumerable<KeyValuePair<int, string>> GendreOfDirectedFilms(int id)
         {
             return dl.GendreOfDirectedFilms(id);
         }
-        [HttpGet]
+        [HttpGet("{id}")]
         public IEnumerable<int> CountOfActorAwards(int id)
         {
             return fl.CountOfActorAwards(id);
         }
-        [HttpGet]
+        [HttpGet("{id}")]
         public IEnumerable<int> CountOfDirectorAwards(int id)
         {
             return fl.CountOfDirectorAwards(id);
         }
-
+        
     }
 }

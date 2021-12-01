@@ -19,14 +19,14 @@ namespace HBSJ64_HFT_2021221.Repository
         public void Create(Director director)
         {
             fdbc.Directors.Add(director);
-            fdbc.SaveChanges();
+            fdbc.SaveChangesAsync();
         }
 
         public void Delete(int id)
         {
             var directorToDelete = Read(id);
             fdbc.Directors.Remove(directorToDelete);
-            fdbc.SaveChanges();
+            fdbc.SaveChangesAsync();
         }
 
         public IQueryable<Director> GetAll()
@@ -45,7 +45,7 @@ namespace HBSJ64_HFT_2021221.Repository
             directorToUpdate.Name = director.Name;
             directorToUpdate.Age = director.Age;
             directorToUpdate.Award = director.Award;
-            fdbc.SaveChanges();
+            fdbc.SaveChangesAsync();
         }
     }
 }

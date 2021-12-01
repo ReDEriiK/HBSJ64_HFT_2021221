@@ -58,5 +58,10 @@ namespace HBSJ64_HFT_2021221.Endpoint.Controllers
         {
             dl.Delete(id);
         }
+        [HttpGet("{id}")]
+        public Director GetSingle(int id)
+        {
+            return dl.Read(id);
+        }
     }
 }

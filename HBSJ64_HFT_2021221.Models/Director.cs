@@ -18,6 +18,7 @@ namespace HBSJ64_HFT_2021221.Models
         public int Age { get; set; }
         public int Award { get; set; }
         [JsonIgnore]
+        [NotMapped]
         public virtual ICollection<Film> Films { get; set; }
 
         public Director()

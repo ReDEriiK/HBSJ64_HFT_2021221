@@ -17,14 +17,15 @@ namespace HBSJ64_HFT_2021221.Repository
         {
            
             fdbc.Films.Add(film);
-            fdbc.SaveChanges();
+            fdbc.SaveChangesAsync();
         }
 
         public void Delete(int id)
         {
             var filmToDelete = Read(id);
             fdbc.Films.Remove(filmToDelete);
-            fdbc.SaveChanges();
+            ;
+            fdbc.SaveChangesAsync();
         }
 
         public IQueryable<Film> GetAll()
@@ -45,7 +46,7 @@ namespace HBSJ64_HFT_2021221.Repository
             filmToUpdate.DateOfPublish = film.DateOfPublish;
             filmToUpdate.ActorId = film.ActorId;
             filmToUpdate.DirectorId = film.DirectorId;
-            fdbc.SaveChanges();
+            fdbc.SaveChangesAsync();
         }
     }
 }

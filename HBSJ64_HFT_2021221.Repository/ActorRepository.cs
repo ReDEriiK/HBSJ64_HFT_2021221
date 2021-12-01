@@ -18,14 +18,14 @@ namespace HBSJ64_HFT_2021221.Repository
         public void Create(Actor actor)
         {
             fdbc.Actors.Add(actor);
-            fdbc.SaveChanges();
+            fdbc.SaveChangesAsync();
         }
 
         public void Delete(int id)
         {
             var actorToDelete = Read(id);
             fdbc.Actors.Remove(actorToDelete);
-            fdbc.SaveChanges();
+            fdbc.SaveChangesAsync();
         }
 
         public IQueryable<Actor> GetAll()
@@ -44,7 +44,7 @@ namespace HBSJ64_HFT_2021221.Repository
             actorToUpdate.Name = actor.Name;
             actorToUpdate.Age = actor.Age;
             actorToUpdate.Awards = actor.Awards;
-            fdbc.SaveChanges();
+            fdbc.SaveChangesAsync();
         }
     }
 }

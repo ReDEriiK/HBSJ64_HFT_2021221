@@ -54,5 +54,10 @@ namespace HBSJ64_HFT_2021221.Endpoint.Controllers
         {
             fl.Delete(id);
         }
+        [HttpGet("{id}")]
+        public Film GetSingle(int id)
+        {
+            return fl.Read(id);
+        }
     }
 }
