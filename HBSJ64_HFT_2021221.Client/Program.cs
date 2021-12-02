@@ -428,10 +428,9 @@ namespace HBSJ64_HFT_2021221.Client
                 else if (inputnd == "2")
                 {
                     var res = rest.Get<KeyValuePair<int, string>>("stat/GendreOfDirectedFilms/" + id);
-                    Console.WriteLine("Genres: ");
                     foreach (var item in res)
                     {
-                        Console.Write(item.Value);
+                        Console.WriteLine("A film id-ja: " + item.Key + ", a film műfaja:  " + item.Value);
                     }
                     Console.ReadKey();
                 }
