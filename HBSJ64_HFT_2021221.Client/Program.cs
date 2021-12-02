@@ -30,6 +30,7 @@ namespace HBSJ64_HFT_2021221.Client
             Console.WriteLine("[6] Class methods");
             Console.WriteLine("[x] Close the program");
             Console.WriteLine("--------------------------------------------------");
+            Console.Write("Your answer: ");
             string input = Console.ReadLine();
             switch (input)
             {
@@ -65,6 +66,7 @@ namespace HBSJ64_HFT_2021221.Client
             Console.WriteLine("[1] Film");
             Console.WriteLine("[2] Actor");
             Console.WriteLine("[3] Director");
+            Console.Write("Your answer: ");
             string input = Console.ReadLine();
             Console.Clear();
             if (input == "1")
@@ -127,6 +129,7 @@ namespace HBSJ64_HFT_2021221.Client
             Console.WriteLine("[1] Film");
             Console.WriteLine("[2] Actor");
             Console.WriteLine("[3] Director");
+            Console.Write("Your answer: ");
             int id = int.Parse(Console.ReadLine());
             Console.Clear();
             Console.Write("ID of the object: ");
@@ -184,6 +187,7 @@ namespace HBSJ64_HFT_2021221.Client
             Console.WriteLine("[1] Film");
             Console.WriteLine("[2] Actor");
             Console.WriteLine("[3] Director");
+            Console.Write("Your answer: ");
             string input = Console.ReadLine();
             Console.Clear();
             if (input == "1")
@@ -256,6 +260,7 @@ namespace HBSJ64_HFT_2021221.Client
             Console.WriteLine("[1] Film");
             Console.WriteLine("[2] Actor");
             Console.WriteLine("[3] Director");
+            Console.Write("Your answer: ");
             string input = Console.ReadLine();
             Console.Clear();
             Console.Write("ID of the item: ");
@@ -285,6 +290,7 @@ namespace HBSJ64_HFT_2021221.Client
             Console.WriteLine("[1] Film");
             Console.WriteLine("[2] Actor");
             Console.WriteLine("[3] Director");
+            Console.Write("Your answer: ");
             string input = Console.ReadLine();
             Console.Clear();
             if (input == "1")
@@ -323,6 +329,7 @@ namespace HBSJ64_HFT_2021221.Client
             Console.WriteLine("[1] Film");
             Console.WriteLine("[2] Actor");
             Console.WriteLine("[3] Director");
+            Console.Write("Your answer: ");
             string input = Console.ReadLine();
             if (input == "1")
             {
@@ -332,6 +339,7 @@ namespace HBSJ64_HFT_2021221.Client
                 Console.WriteLine("[2] Listing the film's directors");
                 Console.WriteLine("[3] How many award does the actor have who is played in this film");
                 Console.WriteLine("[4] How many award does the director have who is directed this film");
+                Console.Write("Your answer: ");
                 string inputnd = Console.ReadLine();
                 Console.Clear();
                 Console.Write("ID of the item: ");
@@ -380,6 +388,7 @@ namespace HBSJ64_HFT_2021221.Client
             {
                 Console.Clear();
                 Console.WriteLine("[1] Count of films where (s)he play on");
+                Console.Write("Your answer: ");
                 string inputnd = Console.ReadLine();
                 Console.Clear();
                 Console.Write("ID of the item: ");
@@ -401,6 +410,7 @@ namespace HBSJ64_HFT_2021221.Client
                 Console.Clear();
                 Console.WriteLine("[1] Count of films what (s)he directed");
                 Console.WriteLine("[2] List of director's genres");
+                Console.Write("Your answer: ");
                 string inputnd = Console.ReadLine();
                 Console.Clear();
                 Console.Write("ID of the item: ");
