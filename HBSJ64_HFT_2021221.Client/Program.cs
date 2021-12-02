@@ -13,8 +13,6 @@ namespace HBSJ64_HFT_2021221.Client
         {
             System.Threading.Thread.Sleep(7500);
             bool menu = true;
-            RestService rest = new RestService("http://localhost:4472");
-
             while (menu)
             {
                 menu = Menu();
@@ -28,7 +26,7 @@ namespace HBSJ64_HFT_2021221.Client
             Console.WriteLine("[2] Read an object");
             Console.WriteLine("[3] Update an existing object");
             Console.WriteLine("[4] Delete an object");
-            Console.WriteLine("[5] List the items");
+            Console.WriteLine("[5] List the objects");
             Console.WriteLine("[6] Class methods");
             Console.WriteLine("[x] Close the program");
             Console.WriteLine("--------------------------------------------------");
@@ -71,15 +69,15 @@ namespace HBSJ64_HFT_2021221.Client
             Console.Clear();
             if (input == "1")
             {
-                Console.WriteLine("Title of the new film");
+                Console.Write("Title of the new film: ");
                 string title = Console.ReadLine();
-                Console.WriteLine("Genre of the new film");
+                Console.Write("Genre of the new film: ");
                 string genre = Console.ReadLine();
-                Console.WriteLine("Reale date of the new film");
+                Console.Write("Release date of the new film: ");
                 int dateofbulish = int.Parse(Console.ReadLine());
-                Console.WriteLine("ID of the actor who is played in the film");
+                Console.Write("ID of the actor who is played in the film: ");
                 int acid = int.Parse(Console.ReadLine());
-                Console.WriteLine("ID of the director who is directed the film");
+                Console.Write("ID of the director who is directed the film: ");
                 int diid = int.Parse(Console.ReadLine());
                 rest.Post<Film>(new Film()
                 {
@@ -92,11 +90,11 @@ namespace HBSJ64_HFT_2021221.Client
             }
             else if (input == "2")
             {
-                Console.WriteLine("Name of the new acotr");
+                Console.Write("Name of the new actor: ");
                 string name = Console.ReadLine();
-                Console.WriteLine("Age of the new actor");
+                Console.Write("Age of the new actor: ");
                 int age = int.Parse(Console.ReadLine());
-                Console.WriteLine("Count of the new actor's awards");
+                Console.Write("Count of the new actor's awards: ");
                 int awards = int.Parse(Console.ReadLine());
                 rest.Post<Actor>(new Actor()
                 {
@@ -107,11 +105,11 @@ namespace HBSJ64_HFT_2021221.Client
             }
             else if (input == "3")
             {
-                Console.WriteLine("Name of the new director");
+                Console.Write("Name of the new director: ");
                 string name = Console.ReadLine();
-                Console.WriteLine("Age of the new director");
+                Console.Write("Age of the new director: ");
                 int age = int.Parse(Console.ReadLine());
-                Console.WriteLine("Count of the new director's awards");
+                Console.Write("Count of the new director's awards: ");
                 int awards = int.Parse(Console.ReadLine());
                 rest.Post<Director>(new Director()
                 {
@@ -131,7 +129,7 @@ namespace HBSJ64_HFT_2021221.Client
             Console.WriteLine("[3] Director");
             int id = int.Parse(Console.ReadLine());
             Console.Clear();
-            Console.WriteLine("ID of the object: ");
+            Console.Write("ID of the object: ");
             string input = Console.ReadLine();
             Console.Clear();
             if (input == "1")
@@ -141,9 +139,9 @@ namespace HBSJ64_HFT_2021221.Client
                 {
                     if (item.FilmId == id)
                     {
-                        Console.WriteLine("The title of the film: " + item.Title);
-                        Console.WriteLine("The relase date of the film: " + item.DateOfPublish);
-                        Console.WriteLine("The genre of the film: " + item.Genre);
+                        Console.Write("The title of the film: " + item.Title + ", ");
+                        Console.Write("The release date of the film: " + item.DateOfPublish + ", ");
+                        Console.Write("The genre of the film: " + item.Genre);
                         Console.ReadKey();
                     }
                 }
@@ -155,9 +153,9 @@ namespace HBSJ64_HFT_2021221.Client
                 {
                     if (item.ActorId == id)
                     {
-                        Console.WriteLine("The name of the actor: " + item.Name);
-                        Console.WriteLine("The age date of the actor: " + item.Age);
-                        Console.WriteLine("Awards of the actor: " + item.Awards);
+                        Console.Write("The name of the actor: " + item.Name + ", ");
+                        Console.Write("The age date of the actor: " + item.Age + ", ");
+                        Console.Write("Awards of the actor: " + item.Awards);
                         Console.ReadKey();
                     }
                 }
@@ -169,9 +167,9 @@ namespace HBSJ64_HFT_2021221.Client
                 {
                     if (item.DirectorId == id)
                     {
-                        Console.WriteLine("The name of the actor: " + item.Name);
-                        Console.WriteLine("The age date of the actor: " + item.Age);
-                        Console.WriteLine("Awards of the actor: " + item.Award);
+                        Console.Write("The name of the actor: " + item.Name + ", ");
+                        Console.Write("The age date of the actor: " + item.Age + ", ");
+                        Console.Write("Awards of the actor: " + item.Award);
                         Console.ReadKey();
                     }
                 }
@@ -190,17 +188,17 @@ namespace HBSJ64_HFT_2021221.Client
             Console.Clear();
             if (input == "1")
             {
-                Console.WriteLine("ID of the object");
+                Console.Write("ID of the object: ");
                 int id = int.Parse(Console.ReadLine());
-                Console.WriteLine("Title of the new film");
+                Console.Write("Title of the new film: ");
                 string title = Console.ReadLine();
-                Console.WriteLine("Genre of the new film");
+                Console.Write("Genre of the new film: ");
                 string genre = Console.ReadLine();
-                Console.WriteLine("Reale date of the new film");
+                Console.Write("Release date of the new film: ");
                 int dateofbulish = int.Parse(Console.ReadLine());
-                Console.WriteLine("ID of the actor who is played in the film");
+                Console.Write("ID of the actor who is played in the film: ");
                 int acid = int.Parse(Console.ReadLine());
-                Console.WriteLine("ID of the director who is directed the film");
+                Console.Write("ID of the director who is directed the film: ");
                 int diid = int.Parse(Console.ReadLine());
                 rest.Put<Film>(new Film()
                 {
@@ -214,13 +212,13 @@ namespace HBSJ64_HFT_2021221.Client
             }
             else if (input == "2")
             {
-                Console.WriteLine("ID of the object");
+                Console.Write("ID of the object: ");
                 int id = int.Parse(Console.ReadLine());
-                Console.WriteLine("Name of the new acotr");
+                Console.Write("Name of the new acotr: ");
                 string name = Console.ReadLine();
-                Console.WriteLine("Age of the new actor");
+                Console.Write("Age of the new actor: ");
                 int age = int.Parse(Console.ReadLine());
-                Console.WriteLine("Count of the new actor's awards");
+                Console.Write("Count of the new actor's awards: ");
                 int awards = int.Parse(Console.ReadLine());
                 rest.Put<Actor>(new Actor()
                 {
@@ -232,13 +230,13 @@ namespace HBSJ64_HFT_2021221.Client
             }
             else if (input == "3")
             {
-                Console.WriteLine("ID of the object");
+                Console.Write("ID of the object: ");
                 int id = int.Parse(Console.ReadLine());
-                Console.WriteLine("Name of the new director");
+                Console.Write("Name of the new director: ");
                 string name = Console.ReadLine();
-                Console.WriteLine("Age of the new director");
+                Console.Write("Age of the new director: ");
                 int age = int.Parse(Console.ReadLine());
-                Console.WriteLine("Count of the new director's awards");
+                Console.Write("Count of the new director's awards: ");
                 int awards = int.Parse(Console.ReadLine());
                 rest.Put<Director>(new Director()
                 {
@@ -260,7 +258,7 @@ namespace HBSJ64_HFT_2021221.Client
             Console.WriteLine("[3] Director");
             string input = Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("ID of the item: ");
+            Console.Write("ID of the item: ");
             int id = int.Parse(Console.ReadLine());
             if (input == "1")
             {
@@ -275,6 +273,9 @@ namespace HBSJ64_HFT_2021221.Client
             {
                 rest.Delete(id, "director");
             }
+            Console.Clear();
+            Console.WriteLine("The object is deleted");
+            Console.ReadKey();
         }
         public static void Listing()
         {
@@ -329,8 +330,8 @@ namespace HBSJ64_HFT_2021221.Client
                 Console.WriteLine("Which method do you you want to run?");
                 Console.WriteLine("[1] Listing the film's actors");
                 Console.WriteLine("[2] Listing the film's directors");
-                Console.WriteLine("[3] How many award does the actor have");
-                Console.WriteLine("[4] How many award does the director have");
+                Console.WriteLine("[3] How many award does the actor have who is played in this film");
+                Console.WriteLine("[4] How many award does the director have who is directed this film");
                 string inputnd = Console.ReadLine();
                 Console.Clear();
                 Console.Write("ID of the item: ");
@@ -378,7 +379,7 @@ namespace HBSJ64_HFT_2021221.Client
             else if (input == "2")
             {
                 Console.Clear();
-                Console.WriteLine("[1] Count of films where he/she acted on");
+                Console.WriteLine("[1] Count of films where (s)he play on");
                 string inputnd = Console.ReadLine();
                 Console.Clear();
                 Console.Write("ID of the item: ");
@@ -398,8 +399,8 @@ namespace HBSJ64_HFT_2021221.Client
             else if (input == "3")
             {
                 Console.Clear();
-                Console.WriteLine("[1] Count of films what he/she directed");
-                Console.WriteLine("[2] List of directro's genres");
+                Console.WriteLine("[1] Count of films what (s)he directed");
+                Console.WriteLine("[2] List of director's genres");
                 string inputnd = Console.ReadLine();
                 Console.Clear();
                 Console.Write("ID of the item: ");
@@ -410,7 +411,7 @@ namespace HBSJ64_HFT_2021221.Client
                     var res = rest.Get<int>("stat/HowManyFilmDoesHeSheHave/" + id);
                     foreach (var item in res)
                     {
-                        Console.WriteLine("The director directed " + item + " film");
+                        Console.Write("The director directed " + item + " film");
                     }
                     Console.ReadKey();
                 }
