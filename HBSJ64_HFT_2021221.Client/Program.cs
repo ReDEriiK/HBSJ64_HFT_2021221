@@ -326,7 +326,7 @@ namespace HBSJ64_HFT_2021221.Client
             Console.Clear();
             RestService rest = new RestService("http://localhost:4472");
             Console.WriteLine("Which class's method do you you want to run?");
-            Console.WriteLine("[1] Film");
+            Console.WriteLine("[1] Film asd");
             Console.WriteLine("[2] Actor");
             Console.WriteLine("[3] Director");
             Console.Write("Your answer: ");
