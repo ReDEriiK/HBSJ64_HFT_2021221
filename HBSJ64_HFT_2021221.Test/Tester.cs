@@ -139,8 +139,9 @@ namespace HBSJ64_HFT_2021221.Test
             var expected = new List<KeyValuePair<int, string>>()
             {
                 new KeyValuePair<int, string>(1, "Gengszter film"),
-                new KeyValuePair<int, string>(1, "Akcióthriller")
+                new KeyValuePair<int, string>(2, "Akcióthriller")
             };
+            Assert.That(res, Is.EqualTo(expected));
         }
         [Test]
         public void CountOfActorAwards()
@@ -158,6 +159,29 @@ namespace HBSJ64_HFT_2021221.Test
             var res = fl.CountOfDirectorAwards(1);
             Assert.That(res, Is.EqualTo(exp));
         }
+        [Test]
+        public void DirectorWorkedWithActor()
+        {
+            var res = dl.ActorsWorkedWith(1);
+            var expected = new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>("Ponyvaregény", "Uma Thurman"),
+                new KeyValuePair<string, string>("Kill Bill 1.", "Uma Thurman")
+            };
+            Assert.That(res, Is.EqualTo(expected));
+        }
+        [Test]
+        public void ActorWorkedWithDirector()
+        {
+            var res = al.DirectorsWorkedWith(1);
+            var expected = new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>("Ponyvaregény", "Quentin Tarantino"),
+                new KeyValuePair<string, string>("Kill Bill 1.", "Quentin Tarantino")
+            };
+            Assert.That(res, Is.EqualTo(expected));
+        }
+
 
         [Test]
         public void ActorCreate()
@@ -191,6 +215,5 @@ namespace HBSJ64_HFT_2021221.Test
                 DateOfPublish = 1994
             }), Throws.ArgumentNullException);
         }
-
     }
 }
