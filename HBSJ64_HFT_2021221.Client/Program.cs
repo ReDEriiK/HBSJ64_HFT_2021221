@@ -388,6 +388,7 @@ namespace HBSJ64_HFT_2021221.Client
             {
                 Console.Clear();
                 Console.WriteLine("[1] Count of films where (s)he play on");
+                Console.WriteLine("[2] Director who worked with (s)he");
                 Console.Write("Your answer: ");
                 string inputnd = Console.ReadLine();
                 Console.Clear();
@@ -403,6 +404,15 @@ namespace HBSJ64_HFT_2021221.Client
                     }
                     Console.ReadKey();
                 }
+                else if (inputnd == "2") 
+                {
+                    var res = rest.Get<KeyValuePair<string, string>>("stat/DirectorsWorkedWith/" + id);
+                    foreach (var item in res)
+                    {
+                        Console.WriteLine("The film where (s)he acted: " + item.Key + ", the director: " + item.Value);
+                    }
+                    Console.ReadKey();
+                }
 
             }
             else if (input == "3")
@@ -410,6 +420,7 @@ namespace HBSJ64_HFT_2021221.Client
                 Console.Clear();
                 Console.WriteLine("[1] Count of films what (s)he directed");
                 Console.WriteLine("[2] List of director's genres");
+                Console.WriteLine("[3] Actor who worked with (s)he");
                 Console.Write("Your answer: ");
                 string inputnd = Console.ReadLine();
                 Console.Clear();
@@ -431,6 +442,15 @@ namespace HBSJ64_HFT_2021221.Client
                     foreach (var item in res)
                     {
                         Console.WriteLine("A film id-ja: " + item.Key + ", a film műfaja:  " + item.Value);
+                    }
+                    Console.ReadKey();
+                }
+                else if (inputnd == "3")
+                {
+                    var res = rest.Get<KeyValuePair<string, string>>("stat/ActorsWorkedWith/" + id);
+                    foreach (var item in res)
+                    {
+                        Console.WriteLine("The film what (s)he directed: " + item.Key + ", the actor: " + item.Value);
                     }
                     Console.ReadKey();
                 }

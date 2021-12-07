@@ -57,6 +57,16 @@ namespace HBSJ64_HFT_2021221.Endpoint.Controllers
         {
             return fl.CountOfDirectorAwards(id);
         }
-        
+        [HttpGet("{id}")]
+        public IEnumerable<KeyValuePair<string, string>> ActorsWorkedWith(int id)
+        {
+            return dl.ActorsWorkedWith(id);
+        }
+        [HttpGet("{id}")]
+        public IEnumerable<KeyValuePair<string, string>> DirectorsWorkedWith(int id)
+        {
+            return al.DirectorsWorkedWith(id);
+        }
+
     }
 }
