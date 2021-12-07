@@ -16,5 +16,6 @@ namespace HBSJ64_HFT_2021221.Logic
         void Delete(int id);
         IEnumerable<Actor> GetAll();
         IEnumerable<int> HowManyFilmDoesHeSheActedOn(int id);
+        IEnumerable<KeyValuePair<string, string>> DirectorsWorkedWith(int id);
     }
 }

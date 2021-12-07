@@ -49,5 +49,12 @@ namespace HBSJ64_HFT_2021221.Logic
             var res = actorRepo.GetAll().Where(x => x.ActorId == id).Select(x => x.Films.Count());
             return res;
         }
+
+        public IEnumerable<KeyValuePair<string, string>> DirectorsWorkedWith(int id)
+        {
+            var res = from x in actorRepo.GetAll().Where(y => y.ActorId == id).SelectMany(Y => Y.Films)
+                      select new KeyValuePair<string, string>(x.Title, x.Director.Name);
+            return res;
+        }
     }
 }
