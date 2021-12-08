@@ -67,6 +67,16 @@ namespace HBSJ64_HFT_2021221.Endpoint.Controllers
         {
             return al.DirectorsWorkedWith(id);
         }
+        [HttpGet("{id}")]
+        public IEnumerable<KeyValuePair<string, string>> FilmActorDirector(int id)
+        {
+            return fl.FilmActorDirector(id);
+        }
+        [HttpGet("{id}")]
+        public IEnumerable<KeyValuePair<string, string>> GenresWhereActed(int id)
+        {
+            return al.GenresWhereActed(id);
+        }
 
     }
 }

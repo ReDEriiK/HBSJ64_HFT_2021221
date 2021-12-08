@@ -89,6 +89,10 @@ namespace HBSJ64_HFT_2021221.Client
                     ActorId = acid,
                     DirectorId = diid
                 }, "film");
+                Console.Clear();
+                Console.WriteLine("New film added");
+                Console.ReadKey();
+                Console.Clear();
             }
             else if (input == "2")
             {
@@ -104,6 +108,10 @@ namespace HBSJ64_HFT_2021221.Client
                     Age = age,
                     Awards = awards
                 }, "actor");
+                Console.Clear();
+                Console.WriteLine("New actor added");
+                Console.ReadKey();
+                Console.Clear();
             }
             else if (input == "3")
             {
@@ -119,6 +127,10 @@ namespace HBSJ64_HFT_2021221.Client
                     Age = age,
                     Award = awards
                 }, "director");
+                Console.Clear();
+                Console.WriteLine("New director added");
+                Console.ReadKey();
+                Console.Clear();
             }
         }
         public static void Reading()
@@ -213,6 +225,10 @@ namespace HBSJ64_HFT_2021221.Client
                     ActorId = acid,
                     DirectorId = diid,
                 }, "film");
+                Console.Clear();
+                Console.WriteLine("The film is updated");
+                Console.ReadKey();
+                Console.Clear();
             }
             else if (input == "2")
             {
@@ -231,6 +247,10 @@ namespace HBSJ64_HFT_2021221.Client
                     Age = age,
                     Awards = awards
                 }, "actor");
+                Console.Clear();
+                Console.WriteLine("The actor is updated");
+                Console.ReadKey();
+                Console.Clear();
             }
             else if (input == "3")
             {
@@ -249,6 +269,10 @@ namespace HBSJ64_HFT_2021221.Client
                     Age = age,
                     Award = awards
                 }, "director");
+                Console.Clear();
+                Console.WriteLine("The director is updated");
+                Console.ReadKey();
+                Console.Clear();
             }
 
         }
@@ -335,10 +359,11 @@ namespace HBSJ64_HFT_2021221.Client
             {
                 Console.Clear();
                 Console.WriteLine("Which method do you you want to run?");
-                Console.WriteLine("[1] Listing the film's actors");
-                Console.WriteLine("[2] Listing the film's directors");
+                Console.WriteLine("[1] The film's actor");
+                Console.WriteLine("[2] The film's directors");
                 Console.WriteLine("[3] How many award does the actor have who is played in this film");
                 Console.WriteLine("[4] How many award does the director have who is directed this film");
+                Console.WriteLine("[5] The film's actor and director");
                 Console.Write("Your answer: ");
                 string inputnd = Console.ReadLine();
                 Console.Clear();
@@ -370,7 +395,7 @@ namespace HBSJ64_HFT_2021221.Client
                     {
                         Console.WriteLine("The actor has " + item + " awards");
                     }
-                    
+
                     Console.ReadKey();
                 }
                 else if (inputnd == "4")
@@ -380,7 +405,16 @@ namespace HBSJ64_HFT_2021221.Client
                     {
                         Console.WriteLine("The director has " + item + " awards");
                     }
-                    
+
+                    Console.ReadKey();
+                }
+                else if (inputnd == "5")
+                {
+                    var res = rest.Get<KeyValuePair<string, string>>("stat/FilmActorDirector/" + id);
+                    foreach (var item in res)
+                    {
+                        Console.WriteLine("The film's director: " + item.Key + ", and actor: " + item.Value);
+                    }
                     Console.ReadKey();
                 }
             }
@@ -389,6 +423,7 @@ namespace HBSJ64_HFT_2021221.Client
                 Console.Clear();
                 Console.WriteLine("[1] Count of films where (s)he play on");
                 Console.WriteLine("[2] Director who worked with (s)he");
+                Console.WriteLine("[3] The film's genre where acted");
                 Console.Write("Your answer: ");
                 string inputnd = Console.ReadLine();
                 Console.Clear();
@@ -404,12 +439,21 @@ namespace HBSJ64_HFT_2021221.Client
                     }
                     Console.ReadKey();
                 }
-                else if (inputnd == "2") 
+                else if (inputnd == "2")
                 {
                     var res = rest.Get<KeyValuePair<string, string>>("stat/DirectorsWorkedWith/" + id);
                     foreach (var item in res)
                     {
                         Console.WriteLine("The film where (s)he acted: " + item.Key + ", the director: " + item.Value);
+                    }
+                    Console.ReadKey();
+                }
+                else if (inputnd == "3")
+                {
+                    var res = rest.Get<KeyValuePair<string, string>>("stat/GenresWhereActed/" + id);
+                    foreach (var item in res)
+                    {
+                        Console.WriteLine("The film's title: " + item.Key + ", and genre:  " + item.Value);
                     }
                     Console.ReadKey();
                 }
@@ -438,7 +482,7 @@ namespace HBSJ64_HFT_2021221.Client
                 }
                 else if (inputnd == "2")
                 {
-                    var res = rest.Get<KeyValuePair<int, string>>("stat/GenreOfDirectedFilms/" + id);
+                    var res = rest.Get<KeyValuePair<string, string>>("stat/GenreOfDirectedFilms/" + id);
                     foreach (var item in res)
                     {
                         Console.WriteLine("The film's title: " + item.Key + ", and genre:  " + item.Value);
