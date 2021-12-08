@@ -181,7 +181,27 @@ namespace HBSJ64_HFT_2021221.Test
             };
             Assert.That(res, Is.EqualTo(expected));
         }
-
+        [Test]
+        public void FilmActAndDir()
+        {
+            var res = fl.FilmActorDirector(2);
+            var expected = new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>("Quentin Tarantino", "Uma Thurman"),
+            };
+            Assert.That(res, Is.EqualTo(expected));
+        }
+        [Test]
+        public void ActorGenres()
+        {
+            var res = al.GenresWhereActed(1);
+            var expected = new List<KeyValuePair<string, string>>()
+            {
+                new KeyValuePair<string, string>("Ponyvaregény", "Gengszter film"),
+                new KeyValuePair<string, string>("Kill Bill 1.", "Akcióthriller")
+            };
+            Assert.That(res, Is.EqualTo(expected));
+        }
 
         [Test]
         public void ActorCreate()
