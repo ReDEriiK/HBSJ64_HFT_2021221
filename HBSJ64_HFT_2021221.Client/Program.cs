@@ -142,52 +142,34 @@ namespace HBSJ64_HFT_2021221.Client
             Console.WriteLine("[2] Actor");
             Console.WriteLine("[3] Director");
             Console.Write("Your answer: ");
-            int id = int.Parse(Console.ReadLine());
+            string input = Console.ReadLine();
             Console.Clear();
             Console.Write("ID of the object: ");
-            string input = Console.ReadLine();
+            int id = int.Parse(Console.ReadLine());
             Console.Clear();
             if (input == "1")
             {
-                var res = rest.Get<Film>("film");
-                foreach (var item in res)
-                {
-                    if (item.FilmId == id)
-                    {
-                        Console.Write("The title of the film: " + item.Title + ", ");
-                        Console.Write("The release date of the film: " + item.DateOfPublish + ", ");
-                        Console.Write("The genre of the film: " + item.Genre);
-                        Console.ReadKey();
-                    }
-                }
+                var res = rest.Get<Film>(id, "film");
+                Console.Write("The title of the film: " + res.Title + ", ");
+                Console.Write("The release date of the film: " + res.DateOfPublish + ", ");
+                Console.Write("The genre of the film: " + res.Genre);
+                Console.ReadKey();
             }
             else if (input == "2")
             {
-                var res = rest.Get<Actor>("Actor");
-                foreach (var item in res)
-                {
-                    if (item.ActorId == id)
-                    {
-                        Console.Write("The name of the actor: " + item.Name + ", ");
-                        Console.Write("The age date of the actor: " + item.Age + ", ");
-                        Console.Write("Awards of the actor: " + item.Awards);
-                        Console.ReadKey();
-                    }
-                }
+                var res = rest.Get<Actor>(id, "actor");
+                Console.Write("The name of the actor: " + res.Name + ", ");
+                Console.Write("The age date of the actor: " + res.Age + ", ");
+                Console.Write("Awards of the actor: " + res.Awards);
+                Console.ReadKey();
             }
             else if (input == "3")
             {
-                var res = rest.Get<Director>("Director");
-                foreach (var item in res)
-                {
-                    if (item.DirectorId == id)
-                    {
-                        Console.Write("The name of the actor: " + item.Name + ", ");
-                        Console.Write("The age date of the actor: " + item.Age + ", ");
-                        Console.Write("Awards of the actor: " + item.Award);
-                        Console.ReadKey();
-                    }
-                }
+                var res = rest.Get<Director>(id, "director");
+                Console.Write("The name of the actor: " + res.Name + ", ");
+                Console.Write("The age date of the actor: " + res.Age + ", ");
+                Console.Write("Awards of the actor: " + res.Award);
+                Console.ReadKey();
             }
         }
         public static void Updating()

@@ -55,9 +55,5 @@ namespace HBSJ64_HFT_2021221.Endpoint.Controllers
         {
             al.Delete(id);
         }
-        public Actor GetSingle(int id)
-        {
-            return al.Read(id);
-        }
     }
 }

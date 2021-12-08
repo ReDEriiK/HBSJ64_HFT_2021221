@@ -56,7 +56,7 @@ namespace HBSJ64_HFT_2021221.Client
             }
             return item;
         }
-
+       
         public T Get<T>(int id, string endpoint)
         {
             T item = default(T);
