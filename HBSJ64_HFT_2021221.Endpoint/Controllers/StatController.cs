@@ -43,9 +43,9 @@ namespace HBSJ64_HFT_2021221.Endpoint.Controllers
             return dl.HowManyFilmDoesHeSheHave(id);
         }
         [HttpGet("{id}")]
-        public IEnumerable<KeyValuePair<int, string>> GendreOfDirectedFilms(int id)
+        public IEnumerable<KeyValuePair<string, string>> GenreOfDirectedFilms(int id)
         {
-            return dl.GendreOfDirectedFilms(id);
+            return dl.GenreOfDirectedFilms(id);
         }
         [HttpGet("{id}")]
         public IEnumerable<int> CountOfActorAwards(int id)

@@ -18,5 +18,6 @@ namespace HBSJ64_HFT_2021221.Logic
         IEnumerable<KeyValuePair<string, string>> FilmDirectors(int id);
         IEnumerable<int> CountOfActorAwards(int id);
         IEnumerable<int> CountOfDirectorAwards(int id);
+        IEnumerable<KeyValuePair<string, string>> FilmActorDirector(int id);
     }
 }

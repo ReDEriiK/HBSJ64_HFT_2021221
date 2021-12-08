@@ -15,7 +15,7 @@ namespace HBSJ64_HFT_2021221.Logic
         void Delete(int id);
         IEnumerable<Director> GetAll();
         IEnumerable<int> HowManyFilmDoesHeSheHave(int id);
-        IEnumerable<KeyValuePair<int, string>> GendreOfDirectedFilms(int id);
+        IEnumerable<KeyValuePair<string, string>> GenreOfDirectedFilms(int id);
         IEnumerable<KeyValuePair<string, string>> ActorsWorkedWith(int id);
     }
 }

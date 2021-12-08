@@ -135,11 +135,11 @@ namespace HBSJ64_HFT_2021221.Test
         [Test]
         public void DirectorsGenres()
         {
-            var res = dl.GendreOfDirectedFilms(1);
-            var expected = new List<KeyValuePair<int, string>>()
+            var res = dl.GenreOfDirectedFilms(1);
+            var expected = new List<KeyValuePair<string, string>>()
             {
-                new KeyValuePair<int, string>(1, "Gengszter film"),
-                new KeyValuePair<int, string>(2, "Akcióthriller")
+                new KeyValuePair<string, string>("Ponyvaregény", "Gengszter film"),
+                new KeyValuePair<string, string>("Kill Bill 1.", "Akcióthriller")
             };
             Assert.That(res, Is.EqualTo(expected));
         }

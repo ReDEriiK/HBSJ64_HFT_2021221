@@ -49,11 +49,11 @@ namespace HBSJ64_HFT_2021221.Logic
             return res;
         }
 
-        public IEnumerable<KeyValuePair<int, string>> GendreOfDirectedFilms(int id)
+        public IEnumerable<KeyValuePair<string, string>> GenreOfDirectedFilms(int id)
         {
             
             var res = from x in directorRepo.GetAll().Where(y => y.DirectorId == id).SelectMany(Y => Y.Films)
-                       select new KeyValuePair<int, string>(x.FilmId, x.Genre);   
+                       select new KeyValuePair<string, string>(x.Title, x.Genre);   
             return res;
         }
 

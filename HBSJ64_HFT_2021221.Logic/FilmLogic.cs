@@ -57,7 +57,6 @@ namespace HBSJ64_HFT_2021221.Logic
                       select new KeyValuePair<string, string>(x.Title, x.Director.Name);
             return res;
         }
-
         public IEnumerable<int> CountOfActorAwards(int id)
         {
             
@@ -71,6 +70,14 @@ namespace HBSJ64_HFT_2021221.Logic
             return directorAwards;
 
         }
+        public IEnumerable<KeyValuePair<string, string>> FilmActorDirector(int id)
+        {
+            var res = from x in filmRepo.GetAll()
+                      where x.FilmId == id
+                      select new KeyValuePair<string, string>(x.Director.Name, x.Actor.Name);
+            return res;
+        }
 
+        
     }
 }
