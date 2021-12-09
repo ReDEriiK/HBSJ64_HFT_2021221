@@ -12,6 +12,22 @@ namespace HBSJ64_HFT_2021221.Client
         static void Main(string[] args)
         {
             System.Threading.Thread.Sleep(7500);
+            try
+            {
+                MenuStarter();
+            }
+            catch (Exception)
+            {
+                Console.Clear();
+                Console.WriteLine("Wrong input");
+                Console.ReadKey();
+                Console.Clear();
+                MenuStarter();
+            }
+            
+        }
+        public static void MenuStarter()
+        {
             bool menu = true;
             while (menu)
             {
