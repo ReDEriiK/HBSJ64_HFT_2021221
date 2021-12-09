@@ -21,12 +21,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{1E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{93157D41-9EDC-4933-B667-9FBEED65C227}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{652FB8FC-A0E1-4833-9077-79430F02BCAE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{652FB8FC-A0E1-4833-9077-79430F02BCAE}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HBSJ64_HFT_2021221.Endpoint", "HBSJ64_HFT_2021221.Endpoint\HBSJ64_HFT_2021221.Endpoint.csproj", "{75CD7A74-62A8-4CC2-B40F-FDC78458EA7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HBSJ64_HFT_2021221.Endpoint", "HBSJ64_HFT_2021221.Endpoint\HBSJ64_HFT_2021221.Endpoint.csproj", "{75CD7A74-62A8-4CC2-B40F-FDC78458EA7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
