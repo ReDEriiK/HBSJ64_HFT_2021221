@@ -12,9 +12,19 @@ namespace HBSJ64_HFT_2021221.Client
         static void Main(string[] args)
         {
             System.Threading.Thread.Sleep(7500);
+            MenuStarter();
+
+
+        }
+        public static void MenuStarter()
+        {
             try
             {
-                MenuStarter();
+                bool menu = true;
+                while (menu)
+                {
+                    menu = Menu();
+                }
             }
             catch (Exception)
             {
@@ -23,15 +33,6 @@ namespace HBSJ64_HFT_2021221.Client
                 Console.ReadKey();
                 Console.Clear();
                 MenuStarter();
-            }
-            
-        }
-        public static void MenuStarter()
-        {
-            bool menu = true;
-            while (menu)
-            {
-                menu = Menu();
             }
         }
         public static bool Menu()
