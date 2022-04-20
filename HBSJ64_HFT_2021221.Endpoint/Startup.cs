@@ -55,7 +55,7 @@ namespace HBSJ64_HFT_2021221.Endpoint
 
 
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HBSJ64_HFT2021221.Endpoint"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HBSJ64_HFT2021221.Endpoint v1"));
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using HBSJ64_HFT_2021221.Models;
+﻿
+using HBSJ64_HFT_2021221.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
@@ -30,6 +31,7 @@ namespace HBSJ64_HFT_2021221.WPFClient
                     {
                         FilmId = value.FilmId,
                         Title = value.Title,
+                        Genre = value.Genre,
                         DateOfPublish= value.DateOfPublish,
                         Director = value.Director,
                         DirectorId = value.DirectorId,
@@ -141,15 +143,15 @@ namespace HBSJ64_HFT_2021221.WPFClient
                 );
 
             UpdateFilm = new RelayCommand(
-                () => RestFilms.Add(new Film()),
+                () => RestFilms.Update(SelectedFilm),
                 () => SelectedFilm != null
                 );
             UpdateActor = new RelayCommand(
-                () => RestActors.Add(new Actor()),
+                () => RestActors.Update(SelectedActor),
                 () => SelectedActor != null
                 );
             UpdateDirector = new RelayCommand(
-                () => RestDirectors.Add(new Director()),
+                () => RestDirectors.Update(SelectedDirector),
                 () => SelectedDirector != null
                 );
 
