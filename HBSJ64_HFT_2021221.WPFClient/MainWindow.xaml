@@ -17,7 +17,7 @@
                         <ColumnDefinition Width="4*"/>
                         <ColumnDefinition Width="4*"/>
                     </Grid.ColumnDefinitions>
-                    <ListBox ItemsSource="{Binding Films}" Grid.Column="0"  HorizontalContentAlignment="Stretch" SelectedItem="{Binding SelectedFilm}">
+                    <ListBox ItemsSource="{Binding RestFilms}" Grid.Column="0"  HorizontalContentAlignment="Stretch" SelectedItem="{Binding SelectedFilm}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border BorderBrush="Black" BorderThickness="1">
@@ -27,6 +27,16 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <StackPanel Grid.Column="1">
+                        <Label Content="Title" Background="Aquamarine"  Padding="10"/>
+                        <TextBox Text="{Binding SelectedFilm.Title}" Padding="10"/>
+                        <Label Content="Date of publish" Background="Aquamarine"  Padding="10"/>
+                        <TextBox Text="{Binding SelectedFilm.DateOfPublish}" Padding="10"/>
+                        <Label Content="Genre" Background="Aquamarine"  Padding="10"/>
+                        <TextBox Text="{Binding SelectedFilm.Genre}" Padding="10"/>
+                        <Label Content="Actor" Background="Aquamarine"  Padding="10"/>
+                        <TextBox Text="{Binding SelectedFilm.ActorId}" Padding="10"/>
+                        <Label Content="Director" Background="Aquamarine"  Padding="10"/>
+                        <TextBox Text="{Binding SelectedFilm.DirectorId}" Padding="10"/>
                         <Button Content="Create" Padding="10" Margin="10"  Command="{Binding CreateFilm}"/>
                         <Button Content="Update" Padding="10" Margin="10"  Command="{Binding UpdateFilm}"/>
                         <Button Content="Delete" Padding="10" Margin="10"  Command="{Binding DeleteFilm}"/>
@@ -40,7 +50,7 @@
                         <ColumnDefinition Width="4*"/>
                         <ColumnDefinition Width="4*"/>
                     </Grid.ColumnDefinitions>
-                    <ListBox ItemsSource="{Binding Actors}" Grid.Column="0"  HorizontalContentAlignment="Stretch"  SelectedItem="{Binding SelectedActor}">
+                    <ListBox ItemsSource="{Binding RestActors}" Grid.Column="0"  HorizontalContentAlignment="Stretch"  SelectedItem="{Binding SelectedActor}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border BorderBrush="Black" BorderThickness="1">
@@ -50,6 +60,12 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <StackPanel Grid.Column="1">
+                        <Label Content="Name" Background="Aquamarine"  Padding="10"/>
+                        <TextBox Text="{Binding SelectedActor.Name}" Padding="10"/>
+                        <Label Content="Age" Background="Aquamarine"  Padding="10"/>
+                        <TextBox Text="{Binding SelectedActor.Age}" Padding="10"/>
+                        <Label Content="Awards" Background="Aquamarine"  Padding="10"/>
+                        <TextBox Text="{Binding SelectedActor.Awards}" Padding="10"/>
                         <Button Content="Create" Padding="10" Margin="10"  Command="{Binding CreateActor}"/>
                         <Button Content="Update" Padding="10" Margin="10"  Command="{Binding UpdateActor}"/>
                         <Button Content="Delete" Padding="10" Margin="10"  Command="{Binding DeleteActor}"/>
@@ -62,7 +78,7 @@
                         <ColumnDefinition Width="4*"/>
                         <ColumnDefinition Width="4*"/>
                     </Grid.ColumnDefinitions>
-                    <ListBox ItemsSource="{Binding Directors}" Grid.Column="0" HorizontalContentAlignment="Stretch"  SelectedItem="{Binding SelectedDirector}">
+                    <ListBox ItemsSource="{Binding RestDirectors}" Grid.Column="0" HorizontalContentAlignment="Stretch"  SelectedItem="{Binding SelectedDirector}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border BorderBrush="Black" BorderThickness="1">
@@ -72,6 +88,12 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                     <StackPanel Grid.Column="1">
+                        <Label Content="Name" Background="Aquamarine"  Padding="10"/>
+                        <TextBox Text="{Binding SelectedDirector.Name}" Padding="10"/>
+                        <Label Content="Age" Background="Aquamarine"  Padding="10"/>
+                        <TextBox Text="{Binding SelectedDirector.Age}" Padding="10"/>
+                        <Label Content="Awards" Background="Aquamarine"  Padding="10"/>
+                        <TextBox Text="{Binding SelectedDirector.Award}" Padding="10"/>
                         <Button Content="Create" Padding="10" Margin="10"  Command="{Binding CreateDirector}"/>
                         <Button Content="Update" Padding="10" Margin="10"  Command="{Binding UpdateDirector}"/>
                         <Button Content="Delete" Padding="10" Margin="10"  Command="{Binding DeleteDirector}"/>

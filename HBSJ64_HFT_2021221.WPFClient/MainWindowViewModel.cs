@@ -13,9 +13,9 @@ namespace HBSJ64_HFT_2021221.WPFClient
     public class MainWindowViewModel : ObservableRecipient
     {
 
-        public RestCollection<Actor> Actors { get; set; }
-        public RestCollection<Director> Directors { get; set; }
-        public RestCollection<Film> Films { get; set; }
+        public RestCollection<Actor> RestActors { get; set; }
+        public RestCollection<Director> RestDirectors { get; set; }
+        public RestCollection<Film> RestFilms { get; set; }
 
 
         private Film selectedFilm;
@@ -23,10 +23,24 @@ namespace HBSJ64_HFT_2021221.WPFClient
         {
             get { return selectedFilm; }
             set 
-            { 
-                SetProperty(ref selectedFilm, value);
-                (DeleteFilm as RelayCommand).NotifyCanExecuteChanged();
-                (UpdateFilm as RelayCommand).NotifyCanExecuteChanged();
+            {
+                if (value != null)
+                {
+                    selectedFilm = new Film()
+                    {
+                        FilmId = value.FilmId,
+                        Title = value.Title,
+                        DateOfPublish= value.DateOfPublish,
+                        Director = value.Director,
+                        DirectorId = value.DirectorId,
+                        Actor = value.Actor,
+                        ActorId = value.ActorId
+                    };
+                    OnPropertyChanged();
+                    (DeleteFilm as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateFilm as RelayCommand).NotifyCanExecuteChanged();
+                }
+                
             }
         }
 
@@ -36,10 +50,20 @@ namespace HBSJ64_HFT_2021221.WPFClient
         {
             get { return selectedActor; }
             set 
-            { 
-                SetProperty(ref selectedActor, value);
-                (DeleteActor as RelayCommand).NotifyCanExecuteChanged();
-                (UpdateActor as RelayCommand).NotifyCanExecuteChanged();
+            {
+                if (value != null)
+                {
+                    selectedActor = new Actor()
+                    {
+                        ActorId = value.ActorId,
+                        Name = value.Name,
+                        Age = value.Age,
+                        Awards = value.Awards
+                    };
+                    OnPropertyChanged();
+                    (DeleteActor as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateActor as RelayCommand).NotifyCanExecuteChanged();
+                }
             }
         }
 
@@ -48,10 +72,21 @@ namespace HBSJ64_HFT_2021221.WPFClient
         {
             get { return selectedDirector; }
             set 
-            { 
-                SetProperty(ref selectedDirector, value);
-                (DeleteDirector as RelayCommand).NotifyCanExecuteChanged();
-                (UpdateDirector as RelayCommand).NotifyCanExecuteChanged();
+            {
+                if (value != null)
+                {
+                    selectedDirector = new Director()
+                    {
+                        DirectorId = value.DirectorId,
+                        Name = value.Name,
+                        Age = value.Age,
+                        Award = value.Award
+                    };
+                    OnPropertyChanged();
+                    (DeleteDirector as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateDirector as RelayCommand).NotifyCanExecuteChanged();
+                }
+                
             }
         }
 
@@ -72,44 +107,63 @@ namespace HBSJ64_HFT_2021221.WPFClient
 
         public MainWindowViewModel()
         {
-            Actors = new RestCollection<Actor>("http://localhost:4472/", "actor");
-            Directors = new RestCollection<Director>("http://localhost:4472/", "director");
-            Films = new RestCollection<Film>("http://localhost:4472/", "film");
+            RestActors = new RestCollection<Actor>("http://localhost:4472/", "actor");
+            RestDirectors = new RestCollection<Director>("http://localhost:4472/", "director");
+            RestFilms = new RestCollection<Film>("http://localhost:4472/", "film");
 
             CreateFilm = new RelayCommand(
-                () => Films.Add(new Film())
+                () => RestFilms.Add(new Film()
+                {
+                    Title = SelectedFilm.Title,
+                    DateOfPublish = SelectedFilm.DateOfPublish,
+                    Genre = SelectedFilm.Genre,
+                    Actor = SelectedFilm.Actor,
+                    ActorId = SelectedFilm.ActorId,
+                    Director = SelectedFilm.Director,
+                    DirectorId = SelectedFilm.DirectorId,
+                })
                 );
             CreateActor = new RelayCommand(
-                () => Actors.Add(new Actor())
+                () => RestActors.Add(new Actor()
+                {
+                    Name = SelectedActor.Name,
+                    Age = SelectedActor.Age,
+                    Awards = SelectedActor.Awards
+                })
                 );
             CreateDirector = new RelayCommand(
-                () => Directors.Add(new Director())
+                () => RestDirectors.Add(new Director()
+                {
+                    Name = SelectedDirector.Name,
+                    Age = SelectedDirector.Age,
+                    Award = SelectedDirector.Award
+                })
                 );
 
             UpdateFilm = new RelayCommand(
-                () => Films.Add(new Film()),
+                () => RestFilms.Add(new Film()),
                 () => SelectedFilm != null
                 );
             UpdateActor = new RelayCommand(
-                () => Actors.Add(new Actor()),
+                () => RestActors.Add(new Actor()),
                 () => SelectedActor != null
                 );
             UpdateDirector = new RelayCommand(
-                () => Directors.Add(new Director()),
+                () => RestDirectors.Add(new Director()),
                 () => SelectedDirector != null
                 );
 
 
             DeleteFilm = new RelayCommand(
-                () => Films.Delete(SelectedFilm.FilmId),
+                () => RestFilms.Delete(SelectedFilm.FilmId),
                 () => SelectedFilm != null
                 );
             DeleteActor = new RelayCommand(
-                () => Actors.Delete(SelectedActor.ActorId),
+                () => RestActors.Delete(SelectedActor.ActorId),
                 () => SelectedActor != null
                 );
             DeleteDirector = new RelayCommand(
-                () => Directors.Delete(SelectedDirector.DirectorId),
+                () => RestDirectors.Delete(SelectedDirector.DirectorId),
                 () => SelectedDirector != null
                 );
         }

@@ -18,8 +18,6 @@ namespace HBSJ64_HFT_2021221.Endpoint
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-
 
             services.AddTransient<IFilmLogic, FilmLogic>();
             services.AddTransient<IActorLogic, ActorLogic>();
@@ -29,11 +27,14 @@ namespace HBSJ64_HFT_2021221.Endpoint
             services.AddTransient<IDirectorRepository, DirectorRepository>();
             services.AddTransient<FilmDbContext, FilmDbContext>();
 
+            services.AddSignalR();
 
+            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MovieDbApp.Endpoint", Version = "v1" });
-                });
+            });
+            
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -47,12 +48,13 @@ namespace HBSJ64_HFT_2021221.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
 
 
 
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MovieDbApp.Endpoint v1"));
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HBSJ64_HFT2021221.Endpoint"));
         }
     }
 }
