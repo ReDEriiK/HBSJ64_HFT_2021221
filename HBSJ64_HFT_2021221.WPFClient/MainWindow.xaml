@@ -12,37 +12,71 @@
     <Grid>
         <TabControl>
             <TabItem Header="Films">
-                <ListBox ItemsSource="{Binding Films}">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Border BorderBrush="Black" BorderThickness="1">
-                                <Label Content="{Binding Title}" />
-                            </Border>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox ItemsSource="{Binding Films}" Grid.Column="0"  HorizontalContentAlignment="Stretch" SelectedItem="{Binding SelectedFilm}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Black" BorderThickness="1">
+                                    <Label Content="{Binding Title}" />
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Column="1">
+                        <Button Content="Create" Padding="10" Margin="10"  Command="{Binding CreateFilm}"/>
+                        <Button Content="Update" Padding="10" Margin="10"  Command="{Binding UpdateFilm}"/>
+                        <Button Content="Delete" Padding="10" Margin="10"  Command="{Binding DeleteFilm}"/>
+                    </StackPanel>
+                </Grid>
+                
             </TabItem>
             <TabItem Header="Actors">
-                <ListBox ItemsSource="{Binding Actors}">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Border BorderBrush="Black" BorderThickness="1">
-                                <Label Content="{Binding Name}" />
-                            </Border>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox ItemsSource="{Binding Actors}" Grid.Column="0"  HorizontalContentAlignment="Stretch"  SelectedItem="{Binding SelectedActor}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Black" BorderThickness="1">
+                                    <Label Content="{Binding Name}" />
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Column="1">
+                        <Button Content="Create" Padding="10" Margin="10"  Command="{Binding CreateActor}"/>
+                        <Button Content="Update" Padding="10" Margin="10"  Command="{Binding UpdateActor}"/>
+                        <Button Content="Delete" Padding="10" Margin="10"  Command="{Binding DeleteActor}"/>
+                    </StackPanel>
+                </Grid>
             </TabItem>
             <TabItem Header="Directors">
-                <ListBox ItemsSource="{Binding Directors}">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Border BorderBrush="Black" BorderThickness="1">
-                                <Label Content="{Binding Name}" />
-                            </Border>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox ItemsSource="{Binding Directors}" Grid.Column="0" HorizontalContentAlignment="Stretch"  SelectedItem="{Binding SelectedDirector}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Black" BorderThickness="1">
+                                    <Label Content="{Binding Name}" />
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Column="1">
+                        <Button Content="Create" Padding="10" Margin="10"  Command="{Binding CreateDirector}"/>
+                        <Button Content="Update" Padding="10" Margin="10"  Command="{Binding UpdateDirector}"/>
+                        <Button Content="Delete" Padding="10" Margin="10"  Command="{Binding DeleteDirector}"/>
+                    </StackPanel>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>
