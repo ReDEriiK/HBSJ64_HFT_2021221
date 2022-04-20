@@ -16,6 +16,8 @@ namespace HBSJ64_HFT_2021221.Endpoint.Controllers
         IFilmLogic fl;
         IActorLogic al;
         IDirectorLogic dl;
+        
+
         public StatController(IFilmLogic fl, IActorLogic al, IDirectorLogic dl)
         {
             this.fl = fl;

@@ -107,9 +107,9 @@ namespace HBSJ64_HFT_2021221.WPFClient
 
         public MainWindowViewModel()
         {
-            RestActors = new RestCollection<Actor>("http://localhost:4472/", "actor");
-            RestDirectors = new RestCollection<Director>("http://localhost:4472/", "director");
-            RestFilms = new RestCollection<Film>("http://localhost:4472/", "film");
+            RestActors = new RestCollection<Actor>("http://localhost:4472/", "actor", "hub");
+            RestDirectors = new RestCollection<Director>("http://localhost:4472/", "director", "hub");
+            RestFilms = new RestCollection<Film>("http://localhost:4472/", "film", "hub");
 
             CreateFilm = new RelayCommand(
                 () => RestFilms.Add(new Film()

@@ -1,4 +1,5 @@
 using HBSJ64_HFT_2021221.Data;
+using HBSJ64_HFT_2021221.Endpoint.Services;
 using HBSJ64_HFT_2021221.Logic;
 using HBSJ64_HFT_2021221.Repository;
 using Microsoft.AspNetCore.Builder;
