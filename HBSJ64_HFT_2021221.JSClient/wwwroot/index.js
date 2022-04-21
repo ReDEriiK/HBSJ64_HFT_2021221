@@ -11,12 +11,13 @@ function setupSignalR() {
         .build();
 
 
-    connection.on("MovieCreated", (user, message) =>
+    connection.on("FilmCreated", (user, message) =>
     {
-        console.log(user);
-        console.log(message);
+        getdata();
     });
-
+    connection.on("FilmDelete", (user, message) => {
+        getdata();
+    });
     connection.onclose(async () =>
     {
         await start();
