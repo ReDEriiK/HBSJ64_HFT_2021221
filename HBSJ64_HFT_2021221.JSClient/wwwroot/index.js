@@ -58,6 +58,8 @@ function display() {
             + t.title + "</td><td>"
             + t.genre + "</td><td>"
             + t.dateOfPublish + "</td><td>"
+            + t.actorId + "</td><td>"
+            + t.directorId + "</td><td>"
             + `<button type="button" onclick="remove(${t.filmId})"> Delete</button>` + "</td></tr>";
     });
 
@@ -85,6 +87,8 @@ function create() {
     let titleofthefilm = document.getElementById('filmtitle').value;
     let genreofthefilm = document.getElementById('filmgenre').value;
     let dateofthefilm = document.getElementById('filmdate').value;
+    let actorofthefilm = document.getElementById('filmactor').value;
+    let directorofthefilm= document.getElementById('filmdirector').value;
 
 
     fetch('http://localhost:4472/film', {
@@ -97,8 +101,8 @@ function create() {
                 title: titleofthefilm,
                 genre: genreofthefilm,
                 dateOfPublish: dateofthefilm,
-                actorId: 1,
-                directorId: 1
+                actorId: actorofthefilm,
+                directorId: directorofthefilm
             }),
     })
         .then(response => response)
