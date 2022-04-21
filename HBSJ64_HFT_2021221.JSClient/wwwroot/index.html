@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Actor UI</title>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+    <h1>Film Catalog</h1>
+    
+    <div id="formdiv">
+        <p> <label>Title</label> </p>
+        <input type="text" id="filmtitle" />
+        <label>Genre</label>
+        <input type="text" id="filmgenre" />
+        <label>Date of publish</label>
+        <input type="number" id="filmdate" />
+        <button type="button" onclick="create()"> Add Film</button>
+
+
+    </div>
+    
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Date of publish</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+
+        </tbody>
+    </table>
+
+    <script src="index.js"></script>
+</body>
+</html>

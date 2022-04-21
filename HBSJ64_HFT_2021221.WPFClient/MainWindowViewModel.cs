@@ -162,6 +162,9 @@ namespace HBSJ64_HFT_2021221.WPFClient
                 () => RestDirectors.Delete(SelectedDirector.DirectorId),
                 () => SelectedDirector != null
                 );
+            SelectedFilm = new Film();
+            SelectedActor = new Actor();
+            SelectedDirector = new Director();
         }
     }
 }

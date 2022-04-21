@@ -22,7 +22,7 @@ namespace HBSJ64_HFT_2021221.WPFClient
     {
         public MainWindow()
         {
-            System.Threading.Thread.Sleep(8500);
+            System.Threading.Thread.Sleep(9000);
             InitializeComponent();
             
         }

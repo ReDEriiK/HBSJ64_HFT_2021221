@@ -1,0 +1,33 @@
+﻿* {
+    font-family: "Lucida Console";
+}
+table {
+    width: 100%;
+
+}
+table, th, td {
+    border: 1px solid black;
+
+}
+table {
+    border-collapse: collapse;
+}
+th, td {
+    padding: 8px;
+}
+th {
+    background-color: aquamarine;
+}
+#formdiv{
+    display: flex;
+    flex-direction: column;
+}
+#formdiv, label, button, input {
+    margin-bottom: 5px;
+    padding: 8px;
+    font-size: 18px;
+}
+#formdiv, label{
+    
+    font-weight: bold;
+}
