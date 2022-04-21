@@ -31,3 +31,6 @@ th {
     
     font-weight: bold;
 }
+table, button {
+   padding: 5px;
+}
