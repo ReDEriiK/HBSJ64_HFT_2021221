@@ -60,7 +60,7 @@ namespace HBSJ64_HFT_2021221.Endpoint.Controllers
         {
             var filmToDelete = this.fl.Read(id);
             fl.Delete(id);
-            this.hub.Clients.All.SendAsync("FilmDelete", filmToDelete);
+            this.hub.Clients.All.SendAsync("FilmDeleted", filmToDelete);
         }
 
     }

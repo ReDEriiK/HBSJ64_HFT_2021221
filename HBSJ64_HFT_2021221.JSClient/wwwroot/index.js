@@ -15,7 +15,10 @@ function setupSignalR() {
     {
         getdata();
     });
-    connection.on("FilmDelete", (user, message) => {
+    connection.on("FilmUpdated", (user, message) => {
+        getdata();
+    });
+    connection.on("FilmDeleted", (user, message) => {
         getdata();
     });
     connection.onclose(async () =>
