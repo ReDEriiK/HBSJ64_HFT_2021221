@@ -33,6 +33,8 @@ namespace HBSJ64_HFT_2021221.WPFClient
                         Title = value.Title,
                         Genre = value.Genre,
                         DateOfPublish= value.DateOfPublish,
+                        ActorId = value.ActorId,
+                        DirectorId = value.DirectorId
                     };
                     OnPropertyChanged();
                     (DeleteFilm as RelayCommand).NotifyCanExecuteChanged();
@@ -64,6 +66,7 @@ namespace HBSJ64_HFT_2021221.WPFClient
                 }
             }
         }
+
 
         private Director selectedDirector;
         public Director SelectedDirector

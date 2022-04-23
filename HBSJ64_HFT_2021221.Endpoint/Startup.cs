@@ -33,7 +33,7 @@ namespace HBSJ64_HFT_2021221.Endpoint
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MovieDbApp.Endpoint", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "HBSJ64_HFT_2021221.Endpoint", Version = "v1" });
             });
             
         }
