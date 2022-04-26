@@ -105,13 +105,11 @@ namespace HBSJ64_HFT_2021221.WPFClient
         public ICommand DeleteDirector { get; set; }
 
 
-
         public MainWindowViewModel()
         {
-            RestActors = new RestCollection<Actor>("http://localhost:4472/", "actor", "hub");
-            RestDirectors = new RestCollection<Director>("http://localhost:4472/", "director", "hub");
+            RestActors = new RestCollection<Actor>("http://localhost:4472/", "actor");
+            RestDirectors = new RestCollection<Director>("http://localhost:4472/", "director");
             RestFilms = new RestCollection<Film>("http://localhost:4472/", "film", "hub");
-
             CreateFilm = new RelayCommand(
                 () => RestFilms.Add(new Film()
                 {
@@ -128,6 +126,7 @@ namespace HBSJ64_HFT_2021221.WPFClient
                     Name = SelectedActor.Name,
                     Age = SelectedActor.Age,
                     Awards = SelectedActor.Awards,
+                    
                 })
                 );
             CreateDirector = new RelayCommand(
@@ -137,7 +136,7 @@ namespace HBSJ64_HFT_2021221.WPFClient
                     Age = SelectedDirector.Age,
                     Award = SelectedDirector.Award
                 })
-                );
+                ) ;
 
             UpdateFilm = new RelayCommand(
                 () => RestFilms.Update(SelectedFilm),
