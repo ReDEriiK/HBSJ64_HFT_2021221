@@ -3,7 +3,6 @@
 }
 table {
     width: 100%;
-
 }
 table, th, td {
     border: 1px solid black;
@@ -33,4 +32,21 @@ th {
 }
 table, button {
    padding: 5px;
+}
+
+
+
+#updateformdiv {
+    display: none;
+    flex-direction: row;
+}
+
+#updateformdiv, label, button, input {
+    margin-bottom: 5px;
+    padding: 8px;
+    font-size: 18px;
+}
+
+#updateformdiv, label {
+    font-weight: bold;
 }
