@@ -43,7 +43,10 @@
                     <ListBox ItemsSource="{Binding RestFilms}" Grid.Column="0" SelectedItem="{Binding SelectedFilm}" x:Name="lb_movies"  IsEnabled="{Binding filmsEnable}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Label Content="{Binding Title}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding FilmId}" ContentStringFormat="ID: {0}"/>
+                                    <Label Content="{Binding Title}" ContentStringFormat="Title: {0}"/>
+                                </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
@@ -75,7 +78,10 @@
                     <ListBox ItemsSource="{Binding RestActors}" Grid.Column="1" SelectedItem="{Binding SelectedActor}" x:Name="lb_acotrs"  IsEnabled="{Binding actorsEnable}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Label Content="{Binding Name}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding ActorId}" ContentStringFormat="ID: {0}"/>
+                                    <Label Content="{Binding Name}" ContentStringFormat="Name: {0}"/>
+                                </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
@@ -107,7 +113,10 @@
                     <ListBox ItemsSource="{Binding RestDirectors}" Grid.Column="2"  SelectedItem="{Binding SelectedDirector}" x:Name="lb_directors" IsEnabled="{Binding directorsEnable}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Label Content="{Binding Name}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding DirectorId}" ContentStringFormat="ID: {0}"/>
+                                    <Label Content="{Binding Name}" ContentStringFormat="Name: {0}"/>
+                                </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>

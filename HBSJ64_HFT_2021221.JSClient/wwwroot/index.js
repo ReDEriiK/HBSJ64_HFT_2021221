@@ -64,12 +64,13 @@ function display() {
             + t.genre + "</td><td>"
             + t.dateOfPublish + "</td><td>"
             + t.actorId + "</td><td>"
-            + t.directorId + "</td><td>" 
-            + `<button type="button" onclick="remove(${t.filmId})"> Delete</button>` + "</td><td>"
-            + `<button type="button" onclick="showupdate(${t.filmId})"> Update</button>` + "</td></tr>";
+            + t.directorId + "</td><td>"
+            `<button type="button" onclick="remove(${t.filmId})">Delete</button>` + "</td><td>"
+            `<button type="button" onclick="showupdate(${t.filmId})">Update</button>`
+            + "</td></tr>";
     });
-
 }
+
 function showupdate(id) {
     document.getElementById('filmtitleupdate').value = films.find(t => t['filmId'] == id)['title'];
     document.getElementById('filmgenreupdate').value = films.find(t => t['filmId'] == id)['genre'];

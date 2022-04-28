@@ -6,7 +6,6 @@ table {
 }
 table, th, td {
     border: 1px solid black;
-
 }
 table {
     border-collapse: collapse;
@@ -31,7 +30,7 @@ th {
     font-weight: bold;
 }
 table, button {
-   padding: 5px;
+   padding: 0px;
 }
 
 

@@ -126,7 +126,6 @@ namespace HBSJ64_HFT_2021221.WPFClient
                     Name = SelectedActor.Name,
                     Age = SelectedActor.Age,
                     Awards = SelectedActor.Awards,
-                    
                 })
                 );
             CreateDirector = new RelayCommand(
@@ -136,7 +135,7 @@ namespace HBSJ64_HFT_2021221.WPFClient
                     Age = SelectedDirector.Age,
                     Award = SelectedDirector.Award
                 })
-                ) ;
+                );
 
             UpdateFilm = new RelayCommand(
                 () => RestFilms.Update(SelectedFilm),
