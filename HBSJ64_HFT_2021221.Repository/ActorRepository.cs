@@ -18,7 +18,7 @@ namespace HBSJ64_HFT_2021221.Repository
         public void Create(Actor actor)
         {
             fdbc.Actors.Add(actor);
-            fdbc.SaveChangesAsync();
+            fdbc.SaveChanges();
         }
 
         public void Delete(int id)

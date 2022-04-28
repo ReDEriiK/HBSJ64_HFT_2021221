@@ -19,7 +19,7 @@ namespace HBSJ64_HFT_2021221.Repository
         public void Create(Director director)
         {
             fdbc.Directors.Add(director);
-            fdbc.SaveChangesAsync();
+            fdbc.SaveChanges();
         }
 
         public void Delete(int id)
