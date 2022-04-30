@@ -65,9 +65,8 @@ function display() {
             + t.dateOfPublish + "</td><td>"
             + t.actorId + "</td><td>"
             + t.directorId + "</td><td>"
-            `<button type="button" onclick="remove(${t.filmId})">Delete</button>` + "</td><td>"
-            `<button type="button" onclick="showupdate(${t.filmId})">Update</button>`
-            + "</td></tr>";
+            + `<button type="button" onclick="remove(${t.filmId})">Delete</button>` + "</td><td>"
+            + `<button type="button" onclick="showupdate(${t.filmId})">Update</button>`+ "</td></tr>";
     });
 }
 
